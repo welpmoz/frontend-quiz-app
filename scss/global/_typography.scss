@@ -1,0 +1,42 @@
+@mixin text-preset-1 {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+@mixin text-preset-2($weight) {
+    font-size: clamp(4rem, 7vw, 6.4rem);
+    font-weight: $weight; // 500 or 300
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+@mixin text-preset-3 {
+    font-style: italic;
+    font-size: clamp(1.4rem, 7vw, 2rem);
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0%;
+}
+
+@mixin text-preset-4 {
+    font-size: clamp(2rem, 7vw, 3.6rem);
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+@mixin text-preset-5 {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0%;
+}
+
+@mixin text-preset-6 {
+    font-size: clamp(8.8rem, 7vw, 14.4rem);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0%;
+}

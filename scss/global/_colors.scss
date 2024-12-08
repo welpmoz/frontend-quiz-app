@@ -1,0 +1,19 @@
+:root {
+    --main-bg: #313E51;
+    --heading-color: #FFFFFF;
+    --caption-color: #ABC1E1;
+    --accent-color: #A729F5;
+    --secondary-color: #3B4D66;
+    --terciary-color: #26D782;
+    --error-color: #EE5454;
+}
+
+body[night-mode="true"] {
+    --main-bg: #F4F6FA;
+    --heading-color: #313E51;
+    --caption-color: #626C7F;
+    --accent-color: #A729F5;
+    --secondary-color: #FFFFFF;
+    --terciary-color: #26D782;
+    --error-color: #EE5454;
+}

@@ -1,0 +1,41 @@
+@use '../global/typography' as t;
+@use '../utils/' as u;
+
+.header {
+
+    &__theme-toggler {
+        grid-column: 4 / 5;
+        grid-row: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.6rem;
+        color: var(--heading-color);
+
+        @include u.breakpoint(medium) {
+            grid-column: 7 / 9;
+        }
+
+        @include u.breakpoint(large) {
+            grid-column: 11 / 13;
+            justify-self: flex-end;
+        }
+    }
+
+    &__topic {
+        grid-column: 1 / 2;
+        grid-row: 1;
+        @include t.text-preset-1();
+        color: var(--heading-color);
+        visibility: hidden;
+
+        @include u.breakpoint(medium) {
+            grid-column: 1 / 7;
+        }
+
+
+        @include u.breakpoint(large) {
+            grid-column: 1 / 11;
+        }
+    }
+}

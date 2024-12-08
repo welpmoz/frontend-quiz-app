@@ -1,0 +1,84 @@
+@use '../global/typography' as t;
+@use '../utils/' as u;
+
+.quiz {
+    grid-column: 1 / 5;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include u.breakpoint(medium) {
+        grid-column: 1 / 9;
+        gap: 6.4rem;
+    }
+
+    @include u.breakpoint(large) {
+        grid-column: 1 / 13;
+        flex-direction: row;
+        gap: 13.1rem;
+    }
+
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        @include u.breakpoint(large) {
+            gap: 4.8rem;
+        }
+    }
+    
+    &__welcome-message {
+        @include t.text-preset-2(300);
+        color: var(--heading-color);
+        display: flex;
+        flex-direction: column;
+
+        &--highlight {
+            @include t.text-preset-2(500);
+        }
+    }
+
+    &__instructions {
+        @include t.text-preset-3();
+        color: var(--caption-color);
+    }
+
+    &__topics {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        @include u.breakpoint(medium) {
+            gap: 2.4rem;
+        }
+
+        @include u.breakpoint(large) {
+            flex-grow: 1;
+        }
+    }
+
+    &__topic {
+        padding: 1.2rem 1.2rem;
+        border-radius: 1.2rem;
+        background-color: var(--secondary-color);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.6rem;
+        @include t.text-preset-1();
+        color: var(--heading-color);
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            cursor: pointer;
+            // TODO: add box shadow maybe
+        }
+
+        &-icon {
+            padding: 0.8rem;
+            border-radius: 0.8rem;
+            background-color: var(--heading-color);
+        }
+    }
+}

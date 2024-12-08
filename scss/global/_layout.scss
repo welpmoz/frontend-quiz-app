@@ -1,0 +1,56 @@
+@use '../utils/' as u;
+
+.grid-wrapper {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+
+
+    @include u.breakpoint(medium) {
+        padding-left: 6.4rem;
+        padding-right: 6.4rem;
+        gap: 2.4rem;
+    }
+
+    @include u.breakpoint(large) {
+        padding-left: 14rem;
+        padding-right: 14rem;
+        gap: 3.2rem;
+    }
+    
+    &--header {
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+        grid-template-columns: auto 1fr 1fr auto;
+        grid-template-rows: auto;
+
+        @include u.breakpoint(medium) {
+            padding-top: 5.4rem;
+            padding-bottom: 6.3rem;
+            grid-template-columns: repeat(8, 5.9rem);
+        }
+
+        @include u.breakpoint(large) {
+            padding-top: 9.7rem;
+            padding-bottom: 9.9rem;
+            grid-template-columns: repeat(12, 6.7rem);
+        }
+    }
+
+    &--quiz {
+        padding-top: 3.2rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+
+        @include u.breakpoint(medium) {
+            padding-top: 0rem;
+            grid-template-columns: repeat(8, 5.9rem);
+        }
+
+        @include u.breakpoint(large) {
+            grid-template-columns: repeat(12, 6.7rem);
+        }
+    }
+}

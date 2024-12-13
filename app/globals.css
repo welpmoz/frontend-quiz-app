@@ -24,11 +24,11 @@ body {
 }
 
 :root {
-  --main-bg: #313E51;
-  --heading-color: #FFFFFF;
-  --caption-color: #ABC1E1;
+  --main-bg: #F4F6FA;
+  --heading-color: #313E51;
+  --caption-color: #626C7F;
+  --secondary-color: #FFFFFF;
   --accent-color: #A729F5;
-  --secondary-color: #3B4D66;
   --terciary-color: #26D782;
   --error-color: #EE5454;
   --fixed-bg: #F4F6FA;
@@ -38,13 +38,10 @@ body {
 }
 
 body[night-mode=true] {
-  --main-bg: #F4F6FA;
-  --heading-color: #313E51;
-  --caption-color: #626C7F;
-  --accent-color: #A729F5;
-  --secondary-color: #FFFFFF;
-  --terciary-color: #26D782;
-  --error-color: #EE5454;
+  --main-bg: #313E51;
+  --heading-color: #FFFFFF;
+  --caption-color: #ABC1E1;
+  --secondary-color: #3B4D66;
 }
 
 .grid-wrapper {

@@ -25,9 +25,21 @@
     &__topic {
         grid-column: 1 / 2;
         grid-row: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.6rem;
+
         @include t.text-preset-1();
         color: var(--heading-color);
-        visibility: hidden;
+
+        &--hidden {
+            visibility: hidden;
+        }
+
+        &--visible {
+            visibility: visible;
+        }
 
         @include u.breakpoint(medium) {
             grid-column: 1 / 7;
@@ -36,6 +48,37 @@
 
         @include u.breakpoint(large) {
             grid-column: 1 / 11;
+        }
+    }
+
+    &__switcher-input {
+        display: none;
+
+        &:checked + .header__switcher::before {
+            transform: translateX(1.2rem);
+        }
+    }
+
+    &__switcher {
+        position: relative;
+        padding: 0.4rem;
+        width: 3.2rem;
+        height: 2rem;
+        background-color: var(--accent-color);
+        border-radius: 99.9rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+            background-color: var(--fixed-color-1);
+            transition: all 0.3s ease-out;
         }
     }
 }

@@ -1,0 +1,86 @@
+@use '../utils/' as u;
+@use '../global/typography' as t;
+
+.result {
+    grid-column: 1 / 5;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include u.breakpoint(medium) {
+        grid-column: 1 / 9;
+    }
+    
+
+    @include u.breakpoint(large) {
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 3.2rem;
+    }
+
+    &__message-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        @include u.breakpoint(large) {
+            grid-column: 1 / 6;
+        }
+    }
+
+    &__message {
+        @include t.text-preset-2(300);
+        color: var(--heading-color);
+
+        &--highlighted {
+            @include t.text-preset-2(500);
+        }
+    }
+
+    &__score-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        @include u.breakpoint(medium) {
+            gap: 3.2rem;
+        }
+
+        @include u.breakpoint(large) {
+            grid-column: 7 / 13;
+        }
+    }
+
+    &__summarize {
+        padding: 3.2rem 3.2rem;
+        border-radius: 1.2rem;
+        background-color: var(--secondary-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        align-items: center;
+
+        @include u.breakpoint(medium) {
+            padding: 4.8rem;
+            gap: 4rem;
+        }
+    }
+
+    &__score {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        align-items: center;
+    }
+
+    &__points {
+        @include t.text-preset-6();
+        color: var(--heading-color);
+    }
+
+    &__total {
+        @include t.text-preset-5();
+        color: var(--caption-color);
+    }
+}

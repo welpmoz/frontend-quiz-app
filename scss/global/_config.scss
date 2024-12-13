@@ -9,6 +9,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: color 0.3s ease-out, background-color 0.3s ease-out;
+    will-change: color, background-color;
 }
 
 img {

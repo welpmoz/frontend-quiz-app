@@ -1,16 +1,19 @@
+import Link from "next/link";
+
+
 export default function QuizTopic({
-    iconPath,
-    topic,
+    icon,
+    title,
 }) {
     return (
         // this could be a link
-        <div className="quiz__topic">
+        <Link className="home__topic" href={title.toLowerCase()}>
             <img
-                alt={`${topic} topic`}
-                className="quiz__topic-icon"
-                src={`${iconPath}`}
+                alt={`${title} topic`}
+                className="home__topic-icon"
+                src={icon}
             />
-            <span className="quiz__topic-label">{topic}</span>
-        </div>
+            <span className="home__topic-label">{title}</span>
+        </Link>
     );
 }

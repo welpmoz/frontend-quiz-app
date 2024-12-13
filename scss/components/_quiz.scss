@@ -14,71 +14,217 @@
 
     @include u.breakpoint(large) {
         grid-column: 1 / 13;
-        flex-direction: row;
-        gap: 13.1rem;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 3.2rem;
     }
 
-    &__intro {
+    &__header {
         display: flex;
         flex-direction: column;
-        gap: 1.6rem;
+        gap: 2.4rem;
 
         @include u.breakpoint(large) {
-            gap: 4.8rem;
-        }
-    }
-    
-    &__welcome-message {
-        @include t.text-preset-2(300);
-        color: var(--heading-color);
-        display: flex;
-        flex-direction: column;
-
-        &--highlight {
-            @include t.text-preset-2(500);
+            grid-column: 1 / 6;
         }
     }
 
-    &__instructions {
+    &__progress {
         @include t.text-preset-3();
         color: var(--caption-color);
     }
 
-    &__topics {
+    &__question {
+        @include t.text-preset-4();
+        color: var(--heading-color);
+    }
+
+    &__progress-bar-wrapper {
+        padding: 0.4rem;
+        border-radius: 99.9rem;
+        background-color: var(--secondary-color);
+        transition: margin-top 0.3s ease-out;
+        will-change: margin-top;
+
+        @include u.breakpoint(large) {
+            margin-top: 16.4rem;
+        }
+    }
+
+    &__progress-bar {
+        height: 0.8rem;
+        border-radius: 10.4rem;
+        background-color: var(--accent-color);
+    }
+
+    &__body {
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
 
         @include u.breakpoint(medium) {
-            gap: 2.4rem;
+            gap: 3.2rem;
         }
 
         @include u.breakpoint(large) {
-            flex-grow: 1;
+            grid-column: 7 / 13;
         }
     }
 
-    &__topic {
-        padding: 1.2rem 1.2rem;
+    &__button {
+        &--visible {
+            display: block;
+        }
+
+        &--hidden {
+            display: none;
+        }
+        
+        outline: none;
+        border: none;
+        text-decoration: none;
         border-radius: 1.2rem;
-        background-color: var(--secondary-color);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1.6rem;
+        padding: 1.2rem 0rem;
+        background-color: var(--accent-color);
+        text-align: center;
         @include t.text-preset-1();
-        color: var(--heading-color);
+        color: var(--fixed-color-1);
         transition: all 0.3s ease-out;
+
+        @include u.breakpoint(medium) {
+            padding: 3.2rem 0rem;
+        }
 
         &:hover {
             cursor: pointer;
-            // TODO: add box shadow maybe
+            background: rgba($color: #fff, $alpha: 0.5), #A729F5;
+            background-blend-mode: difference;
+        }
+    }
+
+    &__options {
+        @include t.text-preset-1();
+        color: var(--heading-color);
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        @include u.breakpoint(medium) {
+            gap: 3.2rem;
+        }
+    }
+
+    &__option-input {
+        display: none;
+
+        &:checked+.quiz__option--checkable {
+            border-color: var(--accent-color);
         }
 
-        &-icon {
-            padding: 0.8rem;
-            border-radius: 0.8rem;
-            background-color: var(--heading-color);
+        &:checked+.quiz__option--checkable::before {
+            background-color: var(--accent-color);
+            color: var(--fixed-color-1);
         }
+    }
+
+    &__option {
+        counter-increment: option;
+        padding: 0.9rem;
+        border: 0.3rem solid var(--secondary-color);
+        display: grid;
+        grid-template-columns: 4rem auto 4rem;
+        gap: 1.6rem;
+        align-items: center;
+        background-color: var(--secondary-color);
+        border-radius: 1.2rem;
+        transition: all 0.3s ease-out;
+
+        &--checkable {
+            &:hover {
+                cursor: pointer;
+
+                &::before {
+                    background-color: var(--accent-color);
+                    color: var(--fixed-color-1);
+                }
+            }
+        }
+
+        @include u.breakpoint(medium) {
+            gap: 3.2rem;
+        }
+
+        @include u.breakpoint(large) {
+            padding: 1.5rem 1.7rem;
+        }
+
+        &::before {
+            content: counter(option, upper-alpha);
+            color: var(--fixed-color-2);
+            background-color: var(--fixed-bg);
+            border-radius: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 4rem;
+            transition: all 0.3s ease-out;
+        }
+
+        &--correct {
+            border-color: var(--terciary-color);
+
+            &::before {
+                background-color: var(--terciary-color);
+                color: var(--fixed-color-1);
+            }
+
+            &::after {
+                content: '';
+                height: 4rem;
+                padding: 0.5rem;
+                background: url('/images/icon-correct.svg');
+            }
+        }
+
+        &--incorrect {
+            border-color: var(--error-color);
+
+            &::before {
+                background-color: var(--error-color);
+                color: var(--fixed-color-1);
+            }
+
+            // TODO: border color and option bg
+            &::after {
+                content: '';
+                height: 4rem;
+                padding: 0.5rem;
+                background: url('/images/icon-error.svg');
+            }
+        }
+    }
+
+    &__feedback {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+        transition: visibility 0.3s ease-out;
+        will-change: visibility;
+
+        &--visible {
+            visibility: visible;
+        }
+
+        &--hidden {
+            visibility: hidden;
+        }
+    }
+
+    &__feedback-message {
+        @include t.text-preset-5();
+        color: var(--error-color);
     }
 }

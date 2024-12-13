@@ -73,6 +73,7 @@ Your users should be able to:
 - React
 - BEM methodology
 - Git & GitHub
+- Vercel
 - Mobile first approach
 
 ### Useful resources

@@ -12,6 +12,10 @@
         gap: 1.6rem;
         color: var(--heading-color);
 
+        &:focus {
+            outline: 0.2rem solid var(--heading-color);
+        }
+
         @include u.breakpoint(medium) {
             grid-column: 7 / 9;
         }

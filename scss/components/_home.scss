@@ -73,7 +73,10 @@
 
         &:hover {
             cursor: pointer;
-            // TODO: add box shadow maybe
+        }
+
+        &:focus {
+            outline: 0.2rem solid var(--accent-color);
         }
 
         &-icon {

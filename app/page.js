@@ -1,10 +1,8 @@
+import { Suspense } from "react";
 import Header from "./components/header";
-import QuizTopic from "./components/quiz-topic";
-import { fetchQuizzes } from "./data";
+import Quizzes from "./components/quizzes";
 
 export default async function Home() {
-  const quizzes = await fetchQuizzes();
-
   return (
     <>
       <Header />
@@ -17,9 +15,9 @@ export default async function Home() {
             <span className="home__instructions">Pick a subject to get started.</span>
           </div>
 
-          <div className="home__topics">
-            {quizzes.map((quiz, i) => <QuizTopic key={i} {...quiz} />)}
-          </div>
+          <Suspense fallback={<p>Loading... Other elements are interactive</p>}>
+            <Quizzes />
+          </Suspense>
         </div>
       </main>
     </>

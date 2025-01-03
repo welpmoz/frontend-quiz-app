@@ -200,6 +200,9 @@ body[night-mode=true] {
 .quiz__button--hidden {
   display: none;
 }
+.quiz__button:focus {
+  outline: 0.2rem solid var(--heading-color);
+}
 @media (width >= 43.75rem) {
   .quiz__button {
     padding: 3.2rem 0rem;
@@ -333,6 +336,9 @@ body[night-mode=true] {
   align-items: center;
   gap: 1.6rem;
   color: var(--heading-color);
+}
+.header__theme-toggler:focus {
+  outline: 0.2rem solid var(--heading-color);
 }
 @media (width >= 43.75rem) {
   .header__theme-toggler {
@@ -486,6 +492,9 @@ body[night-mode=true] {
 }
 .home__topic:hover {
   cursor: pointer;
+}
+.home__topic:focus {
+  outline: 0.2rem solid var(--accent-color);
 }
 .home__topic-icon {
   width: 4rem;
